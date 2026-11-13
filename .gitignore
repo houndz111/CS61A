@@ -1,0 +1,15 @@
+# Ignore macOS system files used to store folder metadata
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# ok autograder
+.ok_history
+
+# Course-provided bulky assets (not my work)
+editor/
+libs/
+static/
+ok
