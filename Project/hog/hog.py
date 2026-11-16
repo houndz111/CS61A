@@ -195,7 +195,9 @@ def always_roll(n):
     """
     assert n >= 0 and n <= 10
     # BEGIN PROBLEM 6
-    "*** YOUR CODE HERE ***"
+    def always_roll_n(score, opponent_score):
+        return n
+    return always_roll_n
     # END PROBLEM 6
 
 
@@ -226,8 +228,22 @@ def is_always_roll(strategy, goal=GOAL):
     False
     """
     # BEGIN PROBLEM 7
-    "*** YOUR CODE HERE ***"
+    _flag = 0
+    _i = 0
+    _score = 0
+    while _score < goal:
+        _opponent_score = 0 
+        while _opponent_score < goal:
+            if _flag == 0:
+                _i = strategy(_score, _opponent_score)
+                _flag = 1
+            if _i != strategy(_score, _opponent_score) and _flag == 1:
+                return False
+            _opponent_score += 1
+        _score += 1
+    return True
     # END PROBLEM 7
+    # 注意变量应该放在循环里还是外，要遍历的话，_opponent_score定义应放在循环里
 
 
 def make_averaged(original_function, times_called=1000):
@@ -242,9 +258,20 @@ def make_averaged(original_function, times_called=1000):
     3.0
     """
     # BEGIN PROBLEM 8
-    "*** YOUR CODE HERE ***"
+    def _avr(*arg):
+        _i = times_called
+        ans = 0
+        while _i > 0:
+            ans += original_function(*arg)
+            _i -= 1
+        return ans / times_called
+    return _avr
     # END PROBLEM 8
+    """注意：当出现对某个变量进行赋值操作时，python不会去parent帧找，只会在当前帧找，
+    所以嵌套函数时，要访问parent帧里的变量，要么只调用不赋值，要么加nonlocal声明
 
+    以及，*arg指的是摊开的未知个数的变量，而arg指的是将传入的变量打包而成的那个元组
+    """
 
 def max_scoring_num_rolls(dice=six_sided, times_called=1000):
     """Return the number of dice (1 to 10) that gives the maximum average score for a turn.
@@ -255,8 +282,19 @@ def max_scoring_num_rolls(dice=six_sided, times_called=1000):
     1
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    _max = 0
+    n = 1
+    ans = 0
+    while n <= 10:
+        _avg = make_averaged(roll_dice, times_called)(n, dice)
+        if _avg > _max:
+            _max = _avg
+            ans = n
+        n += 1
+    return ans
     # END PROBLEM 9
+    """应该先存再比，直接用make_averaged(roll_dice, times_called)(n, dice)判断，然后又用make_averaged(roll_dice, times_called)(n, dice)赋值，这个函数被调用了两次，即其实消耗了两次骰子，更有问题的是，这两次调用的结果可能并不一致，所以应该调用一次然后存储结果，再比较
+    """
 
 
 def winner(strategy0, strategy1):
@@ -300,14 +338,20 @@ def boar_strategy(score, opponent_score, threshold=11, num_rolls=6):
     points, and returns NUM_ROLLS otherwise. Ignore score and Sus Fuss.
     """
     # BEGIN PROBLEM 10
-    return num_rolls  # Remove this line once implemented.
+    if boar_brawl(score, opponent_score) >= threshold:
+        return 0
+    return num_rolls 
     # END PROBLEM 10
 
 
 def sus_strategy(score, opponent_score, threshold=11, num_rolls=6):
     """This strategy returns 0 dice when your score would increase by at least threshold."""
     # BEGIN PROBLEM 11
-    return num_rolls  # Remove this line once implemented.
+    _ = boar_brawl(score, opponent_score)
+    _variation = sus_points(_ + score) - score
+    if _variation >= threshold:
+        return 0 
+    return num_rolls
     # END PROBLEM 11
 
 
@@ -315,9 +359,10 @@ def final_strategy(score, opponent_score):
     """Write a brief description of your final strategy.
 
     *** YOUR DESCRIPTION HERE ***
+    每轮扔5个骰子
     """
     # BEGIN PROBLEM 12
-    return 6  # Remove this line once implemented.
+    return 5
     # END PROBLEM 12
 
 
