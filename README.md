@@ -18,7 +18,7 @@ My solutions and progress for [UC Berkeley CS61A](https://cs61a.org/). Personal 
 | Lab 00                        | Setup                                     | 已完成                      |
 | Lab 01                        | Functions, Control                        | 已完成                      |
 | Lab 02–10                     | HOF, Lists, Iterators, OOP, Trees, Scheme | 未开始                      |
-| Project: Hog                  | The Game of Hog                           | Q1–Q5 已完成，Q6–Q13 未开始 |
+| Project: Hog                  | The Game of Hog                           | hog已完成                   |
 | Project: Cats / Ants / Scheme | —                                         | 未开始                      |
 
 ## 目录结构
