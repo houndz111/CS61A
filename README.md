@@ -10,16 +10,14 @@ My solutions and progress for [UC Berkeley CS61A](https://cs61a.org/). Personal 
 
 ## 进度
 
-| 模块                          | 内容                                      | 状态                        |
-| ----------------------------- | ----------------------------------------- | --------------------------- |
-| HW 01                         | Functions, Control                        | 已完成 6/6                  |
-| HW 02                         | Higher-Order Functions                    | 已完成                      |
-| HW 03–06                      | Recursion, Lists, Trees, OOP              | 未开始                      |
-| Lab 00                        | Setup                                     | 已完成                      |
-| Lab 01                        | Functions, Control                        | 已完成                      |
-| Lab 02–10                     | HOF, Lists, Iterators, OOP, Trees, Scheme | 未开始                      |
-| Project: Hog                  | The Game of Hog                           | hog已完成                   |
-| Project: Cats / Ants / Scheme | —                                         | 未开始                      |
+| 模块                          | 状态                        |
+| ----------------------------- | --------------------------- |
+| HW                            | 进度  2/10                  |
+| Lab                           | 进度  3/13                  |
+| Project: Hog                  | 已完成                      |
+| Project: Cats                 | 未开始                      |
+| Project: Ants                 | 未开始                      |
+| Project: Scheme               | 未开始                      |
 
 ## 目录结构
 
